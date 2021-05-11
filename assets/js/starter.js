@@ -31,7 +31,7 @@ function geoFindMe() {
 				if (data.main.feels_like > 67) {
 					status.innerHTML += 'Yeah, prolly not sweater weather';
 				} else {
-					status.textContent += 'Looks like sweater weather.'
+					status.innerHTML += 'Looks like sweater weather.'
 				}
 			});
 	}
