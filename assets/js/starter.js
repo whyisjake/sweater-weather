@@ -7,12 +7,12 @@ function geoFindMe() {
 
 	function success(position) {
 
-		// Let's add these to the cache.
-		localStorage.setItem('latitude', position.coords.latitude);
-		localStorage.setItem('longitude', position.coords.longitude);
-
 		const latitude  = position.coords.latitude;
 		const longitude = position.coords.longitude;
+
+		// Let's add these to the cache.
+		localStorage.setItem('latitude', latitude);
+		localStorage.setItem('longitude', longitude);
 
 		status.textContent = `Getting weather for ${latitude},${longitude}`;
 		getWeather(latitude, longitude);
@@ -25,7 +25,7 @@ function geoFindMe() {
 	function getWeather(latitude, longitude) {
 		fetch(getWeatherApiUrl(latitude, longitude))
 			.then(response => response.json())
-			.then(function(data) {
+			.then((data) => {
 				console.log(data);
 				status.innerHTML = `Temp: ${data.main.feels_like}º<br>`;
 				if (data.main.feels_like > 67) {
@@ -33,6 +33,9 @@ function geoFindMe() {
 				} else {
 					status.innerHTML += 'Looks like sweater weather.'
 				}
+			})
+			.catch((error) => {
+				console.error('Error:', error);
 			});
 	}
 
