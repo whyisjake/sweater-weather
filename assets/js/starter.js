@@ -3,6 +3,7 @@ import "../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 function geoFindMe() {
 
 	const status = document.querySelector('#status');
+	const temp = document.querySelector('#temp');
 	let latitude, longitude = '';
 
 	function success(position) {
@@ -27,11 +28,11 @@ function geoFindMe() {
 			.then(response => response.json())
 			.then((data) => {
 				console.log(data);
-				status.innerHTML = `Temp: ${data.main.feels_like}º<br>`;
+				temp.innerHTML = `Temp: ${data.main.feels_like}º`;
 				if (data.main.feels_like > 67) {
-					status.innerHTML += 'Yeah, prolly not sweater weather';
+					status.innerHTML = '<i class="bi bi-thermometer-sun"></i> Yeah, prolly not sweater weather';
 				} else {
-					status.innerHTML += 'Looks like sweater weather.'
+					status.innerHTML = '<i class="bi bi-thermometer-low"></i>Looks like sweater weather.'
 				}
 			})
 			.catch((error) => {
