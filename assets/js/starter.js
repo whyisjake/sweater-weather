@@ -1,6 +1,6 @@
 import '../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'; // eslint-disable-line
 
-function geoFindMe() {
+function shouldIWearASweater() {
   const status = document.querySelector('#status');
   const temp = document.querySelector('#temp');
   let latitude;
@@ -63,4 +63,4 @@ function geoFindMe() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', geoFindMe);
+document.addEventListener('DOMContentLoaded', shouldIWearASweater);
