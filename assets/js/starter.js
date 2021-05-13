@@ -25,14 +25,14 @@ function shouldIWearASweater() {
         if (data.main.feels_like > 67) {
           status.innerHTML = '<i class="bi bi-thermometer-sun"></i> Yeah, prolly not sweater weather';
         } else {
-          status.innerHTML = '<i class="bi bi-thermometer-low"></i>Looks like sweater weather.';
+          status.innerHTML = '<i class="bi bi-thermometer-low"></i> Looks like sweater weather.';
         }
       });
   }
 
   function success(position) {
-    latitude = position.coords;
-    longitude = position.coords;
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
 
     // Let's add these to the cache.
     localStorage.setItem('latitude', latitude);
